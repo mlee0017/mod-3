@@ -3,19 +3,14 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getPost, updatePost } from '../../services/postService'
 
 function Edit() {
-
     const [post, setPost] = useState({})
-
     const navigate = useNavigate()
     const params = useParams()
-
     const bodyRef = useRef()
     const subjectRef = useRef()
-
     useEffect(() => {
         getPost(params.id).then(data => setPost(data))
     }, [params.id])
-
     async function handleSubmit(e) {
         e.preventDefault()
         let updatedPost = {
@@ -25,7 +20,6 @@ function Edit() {
         await updatePost(post._id, updatedPost)
         navigate(`/posts/${post._id}`)
     }
-
     return ( 
         <div>
             <h1>Edit Post</h1>

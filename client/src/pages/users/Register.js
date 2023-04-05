@@ -11,33 +11,23 @@ let emptyForm = {
 }
 
 function Register({ setUser }) {
-
     const navigate = useNavigate()
-
     let [form, setForm] = useState(emptyForm)
-
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
-
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         const token = await userRegister(form)
-
         if (!token) {
             setForm(emptyForm)
             return
         }
-
         localStorage.setItem("token", token)
-
         const user = await userInfo()
         setUser(user)
-
         navigate('/posts')
     }
-
     return ( 
         <div className="user-auth">
             <h1>Register</h1>

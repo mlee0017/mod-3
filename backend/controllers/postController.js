@@ -1,6 +1,5 @@
 const Posts = require('../models/postModel')
 const Comments = require('../models/commentModel')
-
 const posts = require('../models/posts')
 
 module.exports.seed = async (req, res) => {
@@ -20,11 +19,8 @@ module.exports.index = async (req, res) => {
 
 module.exports.delete = async (req, res) => {
     try {
-        // first find the post, store it in a variable, then delete it from database
         const post = await Posts.findByIdAndDelete(req.params.id)
-        // delete all comments where the comment id 
         await Comments.deleteMany({ _id: { 
-            // equals/matches any comment ids in this array
             $in: post.comments 
         }})
         res.status(200).json({ message: 'deleted successfully' })
@@ -35,7 +31,6 @@ module.exports.delete = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     try {
-        // add a third argument to the update { new: true } to return the new updated version of the document
         const updatedPost = await Posts.findByIdAndUpdate(req.params.id, req.body, { new: true })
         res.status(200).json(updatedPost)
     } catch(err) {

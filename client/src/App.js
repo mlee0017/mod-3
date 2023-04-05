@@ -10,23 +10,20 @@ import EditComment from './pages/comments/Edit';
 import Register from './pages/users/Register';
 import Login from './pages/users/Login';
 import Navbar from './components/Navbar';
+import Calendar from './components/Calendar'; 
+
 
 function App() {
-
+  const [date, setDate] = useState(new Date())
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
-  // set state will rerender component when page loads 
-  // fetch data when page loads 
   useEffect(() => {
-      
       let token = localStorage.getItem("token")
-
       if (token) {
           getLoggedInUser()
       } else {
           setIsLoading(false)
       }
-
       async function getLoggedInUser() {
           const user = await userInfo()
           setUser(user)
@@ -34,12 +31,11 @@ function App() {
       }
 
   }, [])
-
   let loggedIn = user.username
-
   return (
     <div className="App">
       <Navbar user={loggedIn} setUser={setUser} />
+      <Calendar onChange={setDate} value={date}/>
       <Routes>
           <Route path='/posts' element={<IndexPost user={loggedIn} />} />
           <Route path='/posts/:id' element={<ShowPost user={loggedIn} />} />

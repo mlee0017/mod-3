@@ -3,9 +3,7 @@ import { Link } from "react-router-dom"
 import { getAllPosts } from "../../services/postService"
 
 function Index({ user }) {
-
     const [posts, setPosts] = useState([])
-
     useEffect(() => {
         async function loadData() {
             const data = await getAllPosts()
@@ -18,7 +16,6 @@ function Index({ user }) {
             <div>
                 <h1>Index View</h1>
                 <div id="posts">
-
                         {posts?.map((post, index) => 
                             <Link to={`/posts/${post._id}`} key={index}>
                                 <div className="a-post">
@@ -26,13 +23,11 @@ function Index({ user }) {
                                 </div>
                             </Link>
                         )}
-            
                     {user && 
                         <Link to="/posts/new">
                             <button>NEW POST</button>
                         </Link>
                     }
-    
                 </div>
             </div>
     )

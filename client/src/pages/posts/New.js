@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { createPost } from "../../services/postService";
 
 function New({ user }) {
-
     let subjectRef = useRef()
     let bodyRef = useRef()
     let navigate = useNavigate()
-
     async function handleSubmit(e) {
         e.preventDefault()
         let post = {
@@ -18,7 +16,6 @@ function New({ user }) {
         await createPost(post)
         navigate('/posts')
     }
-
     return ( 
         <div>
             <h1>New Post</h1>
@@ -27,7 +24,7 @@ function New({ user }) {
                 <input type="text" id="nme" ref={subjectRef} /><br /><br />
 
                 <label htmlFor="clr">Body:</label><br />
-                <textarea id="clr" cols="30" rows="10" ref={bodyRef} /><br /><br />
+                <textarea id="clr" cols="10" rows="10" ref={bodyRef} /><br /><br />
 
                 <button>Submit</button>
             </form>

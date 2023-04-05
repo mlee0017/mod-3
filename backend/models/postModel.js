@@ -7,10 +7,8 @@ const postSchema = new Schema({
    body: { type: String },
    user: { type: String, required: true },
    comments: [{
-      // an id referencing the comment
       type: mongoose.Types.ObjectId,
-      // search for it in the Comments collection
-      ref: 'Comment'
+      ref: 'comment'
    }]
 }, { timestamps: true })
 
@@ -18,4 +16,3 @@ const Post = mongoose.model('post', postSchema)
 
 module.exports = Post
 
-// 5 wants/day 

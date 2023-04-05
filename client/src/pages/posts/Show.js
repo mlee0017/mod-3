@@ -4,14 +4,11 @@ import { createCommentForPost, deleteCommentFromPost } from "../../services/comm
 import { deletePost, getPost } from "../../services/postService"
 
 function Show({ user }) {
-
     const [post, setPost] = useState({})
-
     const navigate = useNavigate()
     const params = useParams()
     const bodyRef = useRef()
     const detailsRef = useRef()
-
     useEffect(() => {
         async function loadData() {
             const data = await getPost(params.id)
@@ -20,27 +17,22 @@ function Show({ user }) {
         }
         loadData()
     }, [params.id])
-
     async function handleDeleteComment(comment) {
         await deleteCommentFromPost(comment._id, post._id)
         let updatedPost = { ...post }
         updatedPost.comments = updatedPost.comments.filter(c => c._id !== comment._id)
         setPost(updatedPost)
     }
-
     async function handleDeletePost() {
         await deletePost(post._id)
         navigate('/posts')
     }
-
     async function handleSubmit(e) {
         e.preventDefault()
-
         let comment = {
             body: bodyRef.current.value,
             user
         }
-
         const newComment = await createCommentForPost(comment, post._id)
         let updatedPost = { ...post }
         updatedPost.comments.push(newComment)
@@ -48,7 +40,6 @@ function Show({ user }) {
         bodyRef.current.value = ''
         detailsRef.current.open = false
     }
-
     return (
             <div>
                 <div className="a-post">

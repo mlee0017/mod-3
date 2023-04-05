@@ -12,3 +12,4 @@ router.get('/', userController.show)
 // router.get('/:id/edit', userController.edit)
 // router.get('/:id', userController.show)
 module.exports = router; 
+

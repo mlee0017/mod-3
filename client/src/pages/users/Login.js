@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userInfo, userLogin } from '../../services/userService';
@@ -9,35 +8,24 @@ let emptyForm = {
     password: '',
     email: ''
 }
-
 function Login({ setUser }) {
-
     const navigate = useNavigate()
-
     let [form, setForm] = useState(emptyForm)
-
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
-
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         const token = await userLogin(form)
-
         if (!token) {
             setForm(emptyForm)
             return
         }
-
         localStorage.setItem("token", token)
-
         const user = await userInfo()
         setUser(user)
-
         navigate('/posts')
     }
-
     return ( 
         <div className='user-auth'>
             <h1>Login</h1>
