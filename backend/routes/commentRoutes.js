@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const commentController = require('../controllers/commentControllerler')
+const commentController = require('../controllers/commentController')
 const { authorize, confirmUserAccess } = require('../middleware/authMiddleware')
 router.post('/:pid/', authorize, commentController.createComment)
 router.delete('/:pid/c/:id', authorize, confirmUserAccess, commentController.deleteComment)

@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+// const { authorize } = require('../middleware/authMiddleware')
 const userController = require('../controllers/userController')
 router.get('/', userController.show)
 // index route attached to router object, call back uses res 

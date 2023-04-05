@@ -17,3 +17,5 @@ const postSchema = new Schema({
 const Post = mongoose.model('post', postSchema)
 
 module.exports = Post
+
+// 5 wants/day 

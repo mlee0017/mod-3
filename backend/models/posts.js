@@ -20,3 +20,5 @@ const posts = [
 ]
 
 module.exports = posts
+
+// dummy data for posts 
