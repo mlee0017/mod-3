@@ -7,7 +7,7 @@ This is a simple MERN stack app featuring user authentication with the use of bc
 Technologies used:
 
 - MongoDB: a database used to store collections of documents.
-- Express.js: a backend application framework for Node.js used to handle HTTP requests.
+- Express.js: a backend application framework for Node.js.
 - React: a JavaScript library used to develop the user interface.
 - Node.js: a JavaScript runtime environment enabling Javascript outside of browser. 
 
@@ -32,5 +32,5 @@ I would like to build more on this as the idea of what I wanted to create had a 
 
 Trello: https://trello.com/b/Jxm7Pdkr/mern
 
-ERD: 
+ERD: https://www.figma.com/file/8gsOcNKAyUJTBq97eaadEi/ERD?node-id=0-1&t=QdSTjG1zwaceVok9-0
 
