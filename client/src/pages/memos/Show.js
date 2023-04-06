@@ -69,9 +69,9 @@ function Show({ user }) {
                                             </div>
                                             <br />
                                             <br /> 
-                                            <div className="d-flex flex-column mt-5">
+                                            <div className="d-flex flex-column">
                                                 <Link to={`/memo/${memo._id}/comments/${comment._id}`} style={{ textDecoration: 'none', margin: "2px", padding: "2px" }}>
-                                                    <button className="btn">+</button>
+                                                    <span>+</span>
                                                 </Link>
                                             </div>
                                             <br /> <br /> 
