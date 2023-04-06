@@ -8,6 +8,7 @@ const memoSchema = new Schema({
       required: true,
       enum: [ "(ಥ﹏ಥ)", "(╯°□°）╯︵ ┻━┻", "┬──┬ /( ゜-゜/)", "(｡¬‿¬｡)", "(づ￣ ³￣)づ", "(◕‿◕✿)", "(ಠ╭╮ಠ)", "(♥‿♥ ✿)", "(;´༎ຶД༎ຶ`)", "┴┬┴┤(･_├┬┴┬", "ᕦ(ò_óˇ )ᕤ", "( ⚆ _ ⚆ )", "(~˘▾˘)~"  ]
    },
+   body: { type: String, required: true },
    user: { type: String, required: true },
    date: { type: Date, default: () => new Date(+new Date() + 365 * 24 * 60 * 60 * 1000), required: true },
    comments: [{

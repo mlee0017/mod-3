@@ -43,8 +43,8 @@ function Show({ user }) {
     return (
             <div>
                 <div className="a-memo">
-                    <h2>{memo.mood}</h2>
-                    <h2 style={{ opacity: '.3'}}>{memo.user} on {new Date(memo.createdAt).toLocaleDateString()} at {new Date(memo.createdAt).toLocaleTimeString()}</h2>
+                    <h1>{memo.mood}</h1>
+                    <h5 style={{ opacity: '.3'}}>{memo.user} on {new Date(memo.createdAt).toLocaleDateString()} at {new Date(memo.createdAt).toLocaleTimeString()}</h5>
                     <div className='p-body'>{memo.body}</div><br /><br />
 
                     {
@@ -57,8 +57,9 @@ function Show({ user }) {
                                     <div>{comment.body}</div>
                                     {comment.user === user &&
                                         <>
-                                            <button onClick={() => handleDeleteComment(comment)}>X</button>
-                                            <Link to={`/memo/${memo._id}/comments/${comment._id}`}><span>+</span></Link>
+                                            <button onClick={() => handleDeleteComment(comment)}>x</button>
+                                            <br />
+                                            <Link to={`/memo/${memo._id}/comments/${comment._id}`}>+</Link>
                                         </>
                                     }
                                 </div>
@@ -69,7 +70,7 @@ function Show({ user }) {
                     }
                     {user && 
                         <details ref={detailsRef}>
-                            <summary style={{ opacity: '.5' }}>Leave a comment:</summary>
+                            <summary style={{ opacity: '.5' }}>add a comment:</summary>
                             <form onSubmit={handleSubmit}>
                                 <textarea ref={bodyRef} id="lc" cols="1" rows="1" />
                                 <button>Comment</button>

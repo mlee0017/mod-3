@@ -27,13 +27,14 @@ function Edit() {
             <div className='buttons' style={{ flexDirection: 'column' }}>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="mood">mood:</label><br />
-                    <input type="text" id="mood" ref={moodRef} defaultValue={memo.mood} /><br /><br />
                     <select
                         class="form-select"
                         aria-label="Default select example"
                         name="mood"
+                        defaultValue={memo.mood}
+                        ref={moodRef}
                     >
-                    <option selected>mood:</option>
+                    {/* <option selected>mood:</option> */}
                     <option value="(づ￣ ³￣)づ">(づ￣ ³￣)づ</option>
                     <option value="(｡¬‿¬｡)">(｡¬‿¬｡)</option>
                     <option value="┬──┬ /( ゜-゜/)">┬──┬ /( ゜-゜/)</option>
@@ -49,7 +50,9 @@ function Edit() {
                     <option value="(~˘▾˘)~">(~˘▾˘)~</option>
                     </select>
                     <br /><br /> 
-                    <button>Submit</button>
+                    <label htmlFor="clr">Description:</label><br />
+                    <textarea ref={bodyRef} id="clr" cols="5" rows="5" defaultValue={memo.body} /><br /><br />
+                    <button>update</button>
                     <br /> 
                 </form>
                 <Link to={`/memo/${memo._id}`}>

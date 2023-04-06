@@ -14,12 +14,15 @@ function Index({ user }) {
     console.log(memos)
     return (
             <div>
-                <h1>Index View</h1>
+                <h1>Memos</h1><br /> <br />
                 <div id="memos">
                         {memos?.map((memo, index) => 
                             <Link to={`/memo/${memo._id}`} key={index}>
                                 <div className="a-memo">
-                                    {memo.mood}
+                                    <h1>{memo.mood}</h1>
+                                    <br /> <br />
+                                    <h4>{new Date(memo.createdAt).toLocaleDateString()}</h4> 
+                                    <br /><br/> 
                                 </div>
                             </Link>
                         )}

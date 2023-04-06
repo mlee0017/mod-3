@@ -20,14 +20,13 @@ function Edit() {
     }
     return ( 
         <div>
-            <h1>Edit Comment</h1>
             <div className='buttons' style={{ flexDirection: 'column' }}>
                 <form onSubmit={handleSubmit}>
 
-                    <label htmlFor="clr">Body:</label><br />
-                    <textarea ref={bodyRef} id="clr" cols="30" rows="10" defaultValue={comment.body} /><br /><br />
+                    <label htmlFor="clr">edit:</label><br />
+                    <textarea ref={bodyRef} id="clr" cols="5" rows="5" defaultValue={comment.body} /><br /><br />
 
-                    <button>Submit</button>
+                    <button>update</button>
                 </form>
                 <Link to={`/memo/${params.id}`}>
                     <button>Back</button>

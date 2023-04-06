@@ -21,10 +21,32 @@ function New({ user }) {
             <h1>New Memo</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="nme">Mood:</label><br />
-                <input type="text" id="nme" ref={moodRef} /><br /><br />
+                {/* <input type="text" id="nme" ref={moodRef} /><br /><br /> */}
+                <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        name="mood"
+                        ref={moodRef}
+                    >
+                    {/* <option selected>mood:</option> */}
+                    <option value="(づ￣ ³￣)づ">(づ￣ ³￣)づ</option>
+                    <option value="(｡¬‿¬｡)">(｡¬‿¬｡)</option>
+                    <option value="┬──┬ /( ゜-゜/)">┬──┬ /( ゜-゜/)</option>
+                    <option value="(╯°□°）╯︵ ┻━┻">(╯°□°）╯︵ ┻━┻</option>
+                    <option value="(ಥ﹏ಥ)">(ಥ﹏ಥ)</option>
+                    <option value="ᕦ(ò_óˇ )ᕤ">ᕦ(ò_óˇ )ᕤ</option>
+                    <option value="┴┬┴┤(･_├┬┴┬">┴┬┴┤(･_├┬┴┬</option>
+                    <option value="(;´༎ຶД༎ຶ`)">(;´༎ຶД༎ຶ`)</option>
+                    <option value="(♥‿♥ ✿)">(♥‿♥ ✿)</option>
+                    <option value="(ಠ╭╮ಠ)">(ಠ╭╮ಠ)</option>
+                    <option value="(◕‿◕✿)">(◕‿◕✿)</option>
+                    <option value="( ⚆ _ ⚆ )">( ⚆ _ ⚆ )</option>
+                    <option value="(~˘▾˘)~">(~˘▾˘)~</option>
+                    </select>
+                    <br /><br /> 
 
-                <label htmlFor="clr">Body:</label><br />
-                <textarea id="clr" cols="10" rows="10" ref={bodyRef} /><br /><br />
+                <label htmlFor="clr">Description:</label><br />
+                <textarea id="clr" cols="5" rows="5" ref={bodyRef} /><br /><br />
 
                 <button>Submit</button>
             </form>
