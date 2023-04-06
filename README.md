@@ -11,7 +11,7 @@ Technologies used:
 - React: a JavaScript library used to develop the user interface.
 - Node.js: a JavaScript runtime environment enabling Javascript outside of browser. 
 
-- Bootstrap: open-source CSS framework
+- Bootstrap: open-source CSS framework.
 - VSCode: a source-code editor. 
 - Figma: a web-based design tool for creating mockups and prototypes for interface design.
 
