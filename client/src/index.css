@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 ul {
   position: relative;
   border: 1px solid black;
@@ -187,16 +191,16 @@ textarea {
 
 .buttons {
   display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
+  justify-content: space-around;
+  margin: 12;
+  padding: 12;
   height: inherit;
   width: inherit;
 }
 
 .buttons form {
-  padding: 0;
-  margin: 0;
+  padding: 3;
+  margin: 3;
 }
 
 .comm {
@@ -225,8 +229,8 @@ textarea {
 }
 
 .comm button {
-  margin: 0;
-  padding: 0;
+  margin: 3;
+  padding: 3;
   position: absolute;
   top: 10px;
   left: -20px;
@@ -236,6 +240,8 @@ textarea {
 }
 
 .comm span {
+  margin: 3; 
+  padding: 3; 
   position: absolute;
   list-style: none;
   font-size: 15pt;

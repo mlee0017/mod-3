@@ -12,7 +12,7 @@ async function register(req, res) {
         const encryptedPassword = await bcrypt.hash(req.body.password, salt) 
         const newUser = await User.create({ ...req.body, password: encryptedPassword })
         const payload = { id: newUser._id, user: newUser.username }
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 700 })
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" })
         res.status(200).json({ token }) 
     } catch(err) {
         console.log(err)
@@ -32,7 +32,7 @@ async function login(req, res) {
             return res.status(400).json({ error: 'Invalid credentials' })
         }
         const payload = { id: existingUser._id, user: existingUser.username }
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 700 })
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" })
         res.status(200).json({ token }) 
     } catch(err) {
         console.log(err)

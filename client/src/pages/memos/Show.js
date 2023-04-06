@@ -43,9 +43,14 @@ function Show({ user }) {
     return (
             <div>
                 <div className="a-memo">
+                    <h2>me rn</h2>
+                    <br /><br /> 
                     <h1>{memo.mood}</h1>
+                    <div className='p-body pl-2 pr-2'>
+                        <h4>{memo.body}</h4>
+                    </div>
                     <h5 style={{ opacity: '.3'}}>{memo.user} on {new Date(memo.createdAt).toLocaleDateString()} at {new Date(memo.createdAt).toLocaleTimeString()}</h5>
-                    <div className='p-body'>{memo.body}</div><br /><br />
+                    <br /> 
 
                     {
                         memo.comments?.length ?
@@ -53,13 +58,23 @@ function Show({ user }) {
                             <div>Comments:</div>
                             <div>{memo.comments.map((comment, i) => 
                                 <div key={i} className="comm">
-                                    <div>{comment.user}</div>
-                                    <div>{comment.body}</div>
+                                    <div className="d-flex">{comment.user}</div>
+                                    <br /> 
+                                    <div className="d-flex">{comment.body}</div>
+                                    <br /> 
                                     {comment.user === user &&
                                         <>
-                                            <button onClick={() => handleDeleteComment(comment)}>x</button>
+                                            <div className="d-flex flex-column pb-8">
+                                                <button onClick={() => handleDeleteComment(comment)} className="btn btn-outline-danger">x</button>
+                                            </div>
                                             <br />
-                                            <Link to={`/memo/${memo._id}/comments/${comment._id}`}>+</Link>
+                                            <br /> 
+                                            <div className="d-flex flex-column mt-5">
+                                                <Link to={`/memo/${memo._id}/comments/${comment._id}`} style={{ textDecoration: 'none', margin: "2px", padding: "2px" }}>
+                                                    <button className="btn">+</button>
+                                                </Link>
+                                            </div>
+                                            <br /> <br /> 
                                         </>
                                     }
                                 </div>
@@ -69,11 +84,13 @@ function Show({ user }) {
                         : ''
                     }
                     {user && 
-                        <details ref={detailsRef}>
-                            <summary style={{ opacity: '.5' }}>add a comment:</summary>
+                        <details ref={detailsRef}> 
+                            {/* <summary style={{ opacity: '.5' }}>add a comment:</summary> */}
+                           
                             <form onSubmit={handleSubmit}>
+                                <label htmlFor="clr">add a comment:</label><br />
                                 <textarea ref={bodyRef} id="lc" cols="1" rows="1" />
-                                <button>Comment</button>
+                                <button>add</button>
                             </form>
                         </details>
                     }
@@ -82,12 +99,12 @@ function Show({ user }) {
                         {memo.user === user &&
                             <>
                                 <button onClick={handleDeleteMemo}>Delete</button>
-                                <Link to={`/memo/${memo._id}/edit`}>
+                                <Link to={`/memo/${memo._id}/edit`} style={{ textDecoration: 'none' }}>
                                     <button>Edit</button>
                                 </Link>
                             </>
                         }
-                        <Link to='/memo'>
+                        <Link to='/memo' style={{ textDecoration: 'none' }}>
                             <button>Back</button>
                         </Link>
                     </div>

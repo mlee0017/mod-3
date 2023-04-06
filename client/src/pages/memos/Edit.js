@@ -31,7 +31,7 @@ function Edit() {
                         class="form-select"
                         aria-label="Default select example"
                         name="mood"
-                        defaultValue={memo.mood}
+                        defaultValue={moodRef}
                         ref={moodRef}
                     >
                     {/* <option selected>mood:</option> */}

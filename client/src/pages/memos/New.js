@@ -48,7 +48,7 @@ function New({ user }) {
                 <label htmlFor="clr">Description:</label><br />
                 <textarea id="clr" cols="5" rows="5" ref={bodyRef} /><br /><br />
 
-                <button>Submit</button>
+                <button className="btn btn-primary">add</button>
             </form>
         </div>
      );

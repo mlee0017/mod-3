@@ -32,7 +32,7 @@ function App() {
   let loggedIn = user.username
   return (
     <div className="App">
-      <Navbar user={loggedIn} setUser={setUser} />
+      <Navbar user={loggedIn} setUser={setUser}></Navbar>
       <Routes>
           <Route path='/memo' element={<IndexMemo user={loggedIn} />} />
           <Route path='/memo/:id' element={<ShowMemo user={loggedIn} />} />
