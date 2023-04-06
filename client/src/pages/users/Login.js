@@ -24,7 +24,7 @@ function Login({ setUser }) {
         localStorage.setItem("token", token)
         const user = await userInfo()
         setUser(user)
-        navigate('/posts')
+        navigate('/memo')
     }
     return ( 
         <div className='user-auth'>

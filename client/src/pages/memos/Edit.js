@@ -1,39 +1,39 @@
 import { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { getPost, updatePost } from '../../services/postService'
+import { getMemo, updateMemo } from '../../services/memoService'
 
 function Edit() {
-    const [post, setPost] = useState({})
+    const [memo, setMemo] = useState({})
     const navigate = useNavigate()
     const params = useParams()
     const bodyRef = useRef()
     const subjectRef = useRef()
     useEffect(() => {
-        getPost(params.id).then(data => setPost(data))
+        getMemo(params.id).then(data => setMemo(data))
     }, [params.id])
     async function handleSubmit(e) {
         e.preventDefault()
-        let updatedPost = {
+        let updatedMemo = {
             subject: subjectRef.current.value,
             body: bodyRef.current.value
         }
-        await updatePost(post._id, updatedPost)
-        navigate(`/posts/${post._id}`)
+        await updateMemo(memo._id, updatedMemo)
+        navigate(`/memo/${memo._id}`)
     }
     return ( 
         <div>
-            <h1>Edit Post</h1>
+            <h1>Edit Memo</h1>
             <div className='buttons' style={{ flexDirection: 'column' }}>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="nme">Subject:</label><br />
-                    <input type="text" id="nme" ref={subjectRef} defaultValue={post.subject} /><br /><br />
+                    <input type="text" id="nme" ref={subjectRef} defaultValue={memo.subject} /><br /><br />
 
                     <label htmlFor="clr">Body:</label><br />
-                    <textarea ref={bodyRef} id="clr" cols="30" rows="10" defaultValue={post.body} /><br /><br />
+                    <textarea ref={bodyRef} id="clr" cols="30" rows="10" defaultValue={memo.body} /><br /><br />
 
                     <button>Submit</button>
                 </form>
-                <Link to={`/posts/${post._id}`}>
+                <Link to={`/memo/${memo._id}`}>
                     <button>Back</button>
                 </Link>
                 

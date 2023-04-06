@@ -1,10 +1,10 @@
-const Posts = require('../models/postModel')
+const Memos = require('../models/memoModel')
 const Comments = require('../models/commentModel')
 
 module.exports.createComment = async (req, res) => {
     try {
         const comment = await Comments.create(req.body)
-        await Posts.findByIdAndUpdate(req.params.pid, {
+        await Memos.findByIdAndUpdate(req.params.pid, {
             $push: {
                 comments: comment._id
             }
@@ -18,7 +18,7 @@ module.exports.createComment = async (req, res) => {
 module.exports.deleteComment = async (req, res) => {
     try {
         await Comments.findByIdAndDelete(req.params.id)
-        await Posts.findByIdAndUpdate(req.params.pid, {
+        await Memos.findByIdAndUpdate(req.params.pid, {
             $pull: {
                 comments: req.params.id
             }
@@ -31,8 +31,8 @@ module.exports.deleteComment = async (req, res) => {
 
 module.exports.indexComment = async (req, res) => {
     try {
-        const post = await Posts.findById(req.params.pid).populate('comments')
-        res.json(post.comments)
+        const memo = await Memos.findById(req.params.pid).populate('comments')
+        res.json(memo.comments)
     } catch(err) {
         res.status(400).json({ error: err.message })
     }

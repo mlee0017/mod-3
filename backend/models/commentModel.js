@@ -5,7 +5,7 @@ const commentSchema = new Schema({
    body: { type: String },
    user: { type: String, required: true },
 // Optional second reference:
-   post: { type: mongoose.Types.ObjectId, ref: 'post' }
+   memo: { type: mongoose.Types.ObjectId, ref: 'memo' }
 }, { timestamps: true })
 
 const Comment = mongoose.model('comment', commentSchema)

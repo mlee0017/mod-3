@@ -1,4 +1,4 @@
-const posts = [
+const memos = [
     {
         subject: 'how are you feeling right now?',
         body: 'I cannot react',
@@ -19,6 +19,6 @@ const posts = [
     }
 ]
 
-module.exports = posts
+module.exports = memos
 
-// dummy data for posts 
+// dummy data for memos 

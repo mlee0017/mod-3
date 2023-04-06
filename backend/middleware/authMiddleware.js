@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
-
-const Post = require('../models/postModel')
+const Memo = require('../models/memoModel')
 const Comment = require('../models/commentModel')
 
 async function authorize(req, res, next) {
@@ -26,8 +25,8 @@ async function authorize(req, res, next) {
 async function confirmUserAccess(req, res, next) {
     try {
         let document;
-        if (req.baseUrl.includes('post')) { 
-            document = await Post.findOne({ _id: req.params.id, user: req.user })
+        if (req.baseUrl.includes('memo')) { 
+            document = await Memo.findOne({ _id: req.params.id, user: req.user })
         } else {
             document = await Comment.findOne({ _id: req.params.id, user: req.user })
         }

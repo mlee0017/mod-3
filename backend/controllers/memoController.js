@@ -1,17 +1,16 @@
-const Posts = require('../models/postModel')
+const Memos = require('../models/memoModel')
 const Comments = require('../models/commentModel')
-const posts = require('../models/posts')
 
 module.exports.seed = async (req, res) => {
-    // await Posts.deleteMany({})
-    // await Posts.create(posts)
-    res.redirect('/posts')
+    // await Memos.deleteMany({})
+    // await Memos.create(memo)
+    res.redirect('/memo')
 }
 
 module.exports.index = async (req, res) => {
     try {
-        const posts = await Posts.find().sort({ createdAt: 1 })
-        res.status(200).json(posts)
+        const memos = await Memos.find().sort({ createdAt: 1 })
+        res.status(200).json(memos)
     } catch(err) {
         res.status(400).json({ error: err.message })
     }
@@ -19,9 +18,9 @@ module.exports.index = async (req, res) => {
 
 module.exports.delete = async (req, res) => {
     try {
-        const post = await Posts.findByIdAndDelete(req.params.id)
+        const memo = await Memos.findByIdAndDelete(req.params.id)
         await Comments.deleteMany({ _id: { 
-            $in: post.comments 
+            $in: memo.comments 
         }})
         res.status(200).json({ message: 'deleted successfully' })
     } catch(err) {
@@ -31,8 +30,8 @@ module.exports.delete = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     try {
-        const updatedPost = await Posts.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        res.status(200).json(updatedPost)
+        const updatedMemo = await Memos.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        res.status(200).json(updatedMemo)
     } catch(err) {
         res.status(400).json({ error: err.message })
     }
@@ -40,8 +39,8 @@ module.exports.update = async (req, res) => {
 
 module.exports.create = async (req, res) => {
     try {
-        const post = await Posts.create(req.body)
-        res.status(200).json(post)
+        const memo = await Memos.create(req.body)
+        res.status(200).json(memo)
     } catch(err) {
         res.status(400).json({ error: err.message })
     }
@@ -49,9 +48,8 @@ module.exports.create = async (req, res) => {
 
 module.exports.show = async (req, res) => {
     try {
-        // populate replaces the ids with actual documents/objects we can use
-        const post = await Posts.findById(req.params.id).populate('comments')
-        res.status(200).json(post)
+        const memo = await Memos.findById(req.params.id).populate('comments')
+        res.status(200).json(memo)
     } catch(err) {
         res.status(404).json({ error: err.message })
     }

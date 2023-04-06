@@ -11,8 +11,8 @@ function Navbar({ user, setUser }) {
       {user ? 
         <>
           <li style={{ color: "black" }}>Welcome {user}!</li>
-          <li className="posts-nav">
-            <Link to="/posts">Posts</Link>
+          <li className="memo-nav">
+            <Link to="/memo">Memo</Link>
           </li>
           <li onClick={logout}>
             <Link to="/login">Logout</Link>
@@ -20,10 +20,10 @@ function Navbar({ user, setUser }) {
         </>
        : 
         <>
-          <li className="posts-nav">
-            <Link to="/posts">Posts</Link>
+          <li className="memo-nav">
+            {/* <Link to="/memo">Memo</Link>
           </li>
-          <li>
+          <li> */}
             <Link to="/login">Login</Link>
           </li>
           <li>

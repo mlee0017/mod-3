@@ -2,11 +2,11 @@ const User = require('../models/userModel')
 
 async function show(req, res) {
     try {
-        const foundUser = await User.findById(req.id)
+        const existingUser = await User.findById(req.id)
         
         res.json({ 
-            username: foundUser.username, 
-            email: foundUser.email,
+            username: existingUser.username, 
+            email: existingUser.email,
             id: req.id
         })
 

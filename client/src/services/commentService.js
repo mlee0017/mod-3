@@ -1,38 +1,38 @@
 import { customAxiosWithAuth } from './api'
 
-export async function deleteCommentFromPost(commentId, postId) {
+export async function deleteCommentFromMemo(commentId, memoId) {
     const axios = customAxiosWithAuth()
     try {
-        await axios.delete(`/comments/p/${postId}/c/${commentId}`)
+        await axios.delete(`/comments/m/${memoId}/c/${commentId}`)
     } catch(err) {
         console.log(err.message)
     }
 }
 
-export async function createCommentForPost(comment, postId) {
+export async function createCommentForMemo(comment, memoId) {
     const axios = customAxiosWithAuth()
     try {
-        const response = await axios.post(`/comments/p/${postId}`, comment)
+        const response = await axios.post(`/comments/m/${memoId}`, comment)
         return response.data
     } catch(err) {
         console.log(err.message)
     }
 }
 
-export async function getCommentFromPost(commentId, postId) {
+export async function getMemoComment(commentId, memoId) {
     const axios = customAxiosWithAuth()
     try {
-        const response = await axios.get(`/comments/p/${postId}/c/${commentId}`)
+        const response = await axios.get(`/comments/m/${memoId}/c/${commentId}`)
         return response.data
     } catch(err) {
         console.log(err.message)
     }
 }
 
-export async function updateCommentOfIdFromPost(comment, commentId, postId) {
+export async function updateCommentOfIdFromMemo(comment, commentId, memoId) {
     const axios = customAxiosWithAuth()
     try {
-        await axios.put(`/comments/p/${postId}/c/${commentId}`, comment)
+        await axios.put(`/comments/m/${memoId}/c/${commentId}`, comment)
     } catch(err) {
         console.log(err.message)
     }

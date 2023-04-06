@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userInfo, userRegister } from "../../services/userService";
@@ -26,7 +25,7 @@ function Register({ setUser }) {
         localStorage.setItem("token", token)
         const user = await userInfo()
         setUser(user)
-        navigate('/posts')
+        navigate('/memo')
     }
     return ( 
         <div className="user-auth">

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { createPost } from "../../services/postService";
+import { createMemo } from "../../services/memoService";
 
 function New({ user }) {
     let subjectRef = useRef()
@@ -8,17 +8,17 @@ function New({ user }) {
     let navigate = useNavigate()
     async function handleSubmit(e) {
         e.preventDefault()
-        let post = {
+        let memo = {
             subject: subjectRef.current.value,
             body: bodyRef.current.value,
             user
         }
-        await createPost(post)
-        navigate('/posts')
+        await createMemo(memo)
+        navigate('/memo')
     }
     return ( 
         <div>
-            <h1>New Post</h1>
+            <h1>New Memo</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="nme">Subject:</label><br />
                 <input type="text" id="nme" ref={subjectRef} /><br /><br />
