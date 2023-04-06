@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { createMemo } from "../../services/memoService";
 
 function New({ user }) {
-    let subjectRef = useRef()
+    let moodRef = useRef()
     let bodyRef = useRef()
     let navigate = useNavigate()
     async function handleSubmit(e) {
         e.preventDefault()
         let memo = {
-            subject: subjectRef.current.value,
+            mood: moodRef.current.value,
             body: bodyRef.current.value,
             user
         }
@@ -20,8 +20,8 @@ function New({ user }) {
         <div>
             <h1>New Memo</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="nme">Subject:</label><br />
-                <input type="text" id="nme" ref={subjectRef} /><br /><br />
+                <label htmlFor="nme">Mood:</label><br />
+                <input type="text" id="nme" ref={moodRef} /><br /><br />
 
                 <label htmlFor="clr">Body:</label><br />
                 <textarea id="clr" cols="10" rows="10" ref={bodyRef} /><br /><br />

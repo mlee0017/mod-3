@@ -1,20 +1,17 @@
 const memos = [
     {
-        subject: 'how are you feeling right now?',
-        body: 'I cannot react',
+        mood: '(~˘▾˘)~',
         user: 'karl',
         comments: []
     },
     {
-        subject: 'have you eaten today?',
-        body: 'That is the question.',
+        mood: '(;´༎ຶД༎ຶ`)',
         user: 'jimberly',
         comments: []
     },
     {
-        subject: 'sow your seeds',
-        body: 'run your shit',
-        user: 'hai',
+        mood: '(♥‿♥ ✿)',
+        user: 'milton',
         comments: []
     }
 ]

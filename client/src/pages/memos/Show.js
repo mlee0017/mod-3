@@ -43,8 +43,8 @@ function Show({ user }) {
     return (
             <div>
                 <div className="a-memo">
-                    <h2>{memo.subject}</h2>
-                    <h5 style={{ opacity: '.3'}}>Memo by {memo.user} on {new Date(memo.createdAt).toLocaleDateString()} at {new Date(memo.createdAt).toLocaleTimeString()}</h5>
+                    <h2>{memo.mood}</h2>
+                    <h2 style={{ opacity: '.3'}}>{memo.user} on {new Date(memo.createdAt).toLocaleDateString()} at {new Date(memo.createdAt).toLocaleTimeString()}</h2>
                     <div className='p-body'>{memo.body}</div><br /><br />
 
                     {

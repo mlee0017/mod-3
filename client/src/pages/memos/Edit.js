@@ -7,29 +7,28 @@ function Edit() {
     const navigate = useNavigate()
     const params = useParams()
     const bodyRef = useRef()
-    const subjectRef = useRef()
+    const moodRef = useRef()
     useEffect(() => {
         getMemo(params.id).then(data => setMemo(data))
     }, [params.id])
     async function handleSubmit(e) {
         e.preventDefault()
         let updatedMemo = {
-            subject: subjectRef.current.value,
+            mood: moodRef.current.value,
             body: bodyRef.current.value
         }
         await updateMemo(memo._id, updatedMemo)
         navigate(`/memo/${memo._id}`)
     }
+    console.log(memo)
     return ( 
         <div>
             <h1>Edit Memo</h1>
             <div className='buttons' style={{ flexDirection: 'column' }}>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="nme">Subject:</label><br />
-                    <input type="text" id="nme" ref={subjectRef} defaultValue={memo.subject} /><br /><br />
+                    <label htmlFor="mood">mood:</label><br />
+                    <input type="text" id="mood" ref={moodRef} defaultValue={memo.mood} /><br /><br />
 
-                    <label htmlFor="clr">Body:</label><br />
-                    <textarea ref={bodyRef} id="clr" cols="30" rows="10" defaultValue={memo.body} /><br /><br />
 
                     <button>Submit</button>
                 </form>

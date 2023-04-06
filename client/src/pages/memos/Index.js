@@ -19,7 +19,7 @@ function Index({ user }) {
                         {memos?.map((memo, index) => 
                             <Link to={`/memo/${memo._id}`} key={index}>
                                 <div className="a-memo">
-                                    {memo.subject}
+                                    {memo.mood}
                                 </div>
                             </Link>
                         )}
