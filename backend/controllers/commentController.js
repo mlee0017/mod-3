@@ -4,7 +4,7 @@ const Comments = require('../models/commentModel')
 module.exports.createComment = async (req, res) => {
     try {
         const comment = await Comments.create(req.body)
-        await Memos.findByIdAndUpdate(req.params.pid, {
+        await Memos.findByIdAndUpdate(req.params.mid, {
             $push: {
                 comments: comment._id
             }
@@ -18,7 +18,7 @@ module.exports.createComment = async (req, res) => {
 module.exports.deleteComment = async (req, res) => {
     try {
         await Comments.findByIdAndDelete(req.params.id)
-        await Memos.findByIdAndUpdate(req.params.pid, {
+        await Memos.findByIdAndUpdate(req.params.mid, {
             $pull: {
                 comments: req.params.id
             }

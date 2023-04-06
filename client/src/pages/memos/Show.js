@@ -65,7 +65,7 @@ function Show({ user }) {
                                     {comment.user === user &&
                                         <>
                                             <div className="d-flex flex-column pb-8">
-                                                <button onClick={() => handleDeleteComment(comment)} className="btn btn-outline-danger">x</button>
+                                                <button onClick={() => handleDeleteComment(comment)} className="btn btn-outline-danger pl-9">x</button>
                                             </div>
                                             <br />
                                             <br /> 
